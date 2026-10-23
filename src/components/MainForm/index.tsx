@@ -14,7 +14,7 @@ export function MainForm() {
 
   //ciclos
   const nextCycle = getNextCycle(state.currentCycle);
-  const nextCycleTime = getNextCycleType(nextCycle);
+  const nextCycleTipe = getNextCycleType(nextCycle);
 
   function handleCreateNewTask(event: React.SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -34,8 +34,8 @@ export function MainForm() {
       startDate: Date.now(),
       completeDate: null,
       interruptDate: null,
-      duration: 1,
-      type: nextCycleTime,
+      duration: state.config[nextCycleTipe],
+      type: nextCycleTipe,
     };
 
     const secondsRemaining = newTask.duration * 60;
